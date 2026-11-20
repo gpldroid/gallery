@@ -1,5 +1,5 @@
 ---
-import { BookOpen, Feather, Library, Menu, X } from '@lucide/astro';
+import { BookOpen, Feather, Menu } from '@lucide/astro';
 const { current = 'home' } = Astro.props;
 const links = [
   { href: '/', label: 'Home', key: 'home' },
@@ -11,13 +11,13 @@ const links = [
 <div class="announcement"><span class="announcement-mark">✳</span><span>A small world of stories, made for curious minds</span><span class="announcement-mark">✳</span></div>
 <header class="site-header">
   <a class="brand" href="/" aria-label="Margins home">
-    <span class="brand-symbol"><Feather size={22} strokeWidth={1.4} /></span>
+    <span class="brand-symbol"><Feather size={22} stroke-width={1.4} /></span>
     <span class="brand-word">margins<span>.</span></span>
   </a>
   <nav class="main-nav" aria-label="Main navigation">
     {links.map((link) => <a href={link.href} class:list={{ active: current === link.key }} aria-current={current === link.key ? 'page' : undefined}>{link.label}</a>)}
   </nav>
-  <a class="header-reading-link" href="/books/"><BookOpen size={16} strokeWidth={1.5} /> <span>Find your next read</span></a>
+  <a class="header-reading-link" href="/books/"><BookOpen size={16} stroke-width={1.5} /> <span>Find your next read</span></a>
   <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle><Menu size={22} /></button>
 </header>
 <nav class="mobile-nav" aria-label="Mobile navigation" data-mobile-nav>
