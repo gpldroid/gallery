@@ -1,0 +1,16 @@
+---
+import { ArrowUpRight, BookOpen } from '@lucide/astro';
+const { book } = Astro.props;
+---
+<article class="book-card">
+  <a class="book-cover-link" href={`/books/${book.id}/`} aria-label={`Discover ${book.data.title}`}>
+    <div class="book-cover-frame"><img src={book.data.cover} alt={book.data.coverAlt} loading="lazy" /></div>
+    <span class="book-card-arrow"><ArrowUpRight size={17} /></span>
+  </a>
+  <div class="book-card-copy">
+    <span class="book-genre">{book.data.genre}</span>
+    <h3><a href={`/books/${book.id}/`}>{book.data.title}</a></h3>
+    <p>by {book.data.author}</p>
+    <a class="book-discover" href={`/books/${book.id}/`}>Discover book <ArrowUpRight size={13} /></a>
+  </div>
+</article>
