@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import { BookOpen } from '@lucide/astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookCard from '../../components/BookCard.astro';
+const books = await getCollection('books');
+const genres = [...new Set(books.map((book) => book.data.genre))];
+---
+<BaseLayout title="The Library — Margins" description="A carefully gathered shelf of books and reading discoveries." current="books">
+  <main id="main-content">
+    <section class="books-hero"><div class="books-hero-copy"><span class="eyebrow" data-intro>THE MARGINS LIBRARY</span><h1 data-intro>A good book<br />is a <em>doorway.</em></h1><p data-intro>A small, considered collection of books to discover, revisit, and carry with you.</p><span class="books-hero-count" data-intro><BookOpen size={15} /> {books.length.toString().padStart(2,'0')} BOOKS TO EXPLORE</span></div><div class="books-hero-image" data-intro><img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1300&q=90" alt="Warm, sunlit library with shelves of books" /></div></section>
+    <section class="books-archive section-shell"><div class="section-heading" data-reveal><div><span class="eyebrow">THE COLLECTION</span><h2>Find your next world<span>.</span></h2></div><span class="collection-count">{books.length} TITLES <i>·</i> {genres.length} GENRES</span></div>
+      {books.length ? <div class="book-grid">{books.map((book) => <BookCard book={book} />)}</div> : <div class="empty-state"><span>✳</span><h2>A fresh shelf is on its way.</h2><p>Our library is being carefully gathered.</p></div>}
+    </section>
+  </main>
+</BaseLayout>
