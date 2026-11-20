@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import { ArrowUpRight } from '@lucide/astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StoryCard from '../../components/StoryCard.astro';
+const stories = (await getCollection('stories')).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+<BaseLayout title="Stories — Margins Journal" description="Short fiction, personal essays, and thoughtful reads." current="stories">
+  <main id="main-content">
+    <section class="archive-heading section-shell"><span class="eyebrow" data-intro>THE JOURNAL</span><h1 data-intro>Stories for the<br /><em>in-between moments.</em></h1><p data-intro>Short fiction, small observations, and the kind of words that follow you long after the page ends.</p><div class="archive-meta" data-intro><span>{stories.length.toString().padStart(2,'0')} PIECES IN THE JOURNAL</span><span>READ AT YOUR OWN PACE <ArrowUpRight size={13} /></span></div></section>
+    <section class="archive-body section-shell"><div class="archive-topline"><span class="eyebrow">ALL STORIES</span><span>New and noteworthy, gathered in one place.</span></div>
+      {stories.length ? <div class="story-grid story-grid--archive">{stories.map((story) => <StoryCard story={story} />)}</div> : <div class="empty-state"><span>✳</span><h2>The first page is still being written.</h2><p>There are no stories here just yet.</p></div>}
+    </section>
+  </main>
+</BaseLayout>
