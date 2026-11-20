@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { BookOpen } from '@lucide/astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BookCard from '../../components/BookCard.astro';
+const base = import.meta.env.BASE_URL;
 const books = await getCollection('books');
 const genres = [...new Set(books.map((book) => book.data.genre))];
 ---
