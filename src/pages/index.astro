@@ -1,18 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Search, Heart, ShoppingBag, Gem, Truck, ShieldCheck, Headset, ArrowUpRight } from '@lucide/astro';
-const categories = [
-  { name: 'Handbags', note: 'The art of carrying', image: 'photo-1584917865442-de89df76afd3', alt: 'Sculptural leather handbag' },
-  { name: 'Watches', note: 'Time, beautifully told', image: 'photo-1524592094714-0f0654e20314', alt: 'Classic luxury wristwatch' },
-  { name: 'Jewelry', note: 'Little things, lasting love', image: 'photo-1611652022419-a9419f74343d', alt: 'Gold jewelry detail' },
-  { name: 'Shoes', note: 'A graceful first step', image: 'photo- heels', alt: 'Elegant neutral heels' },
-];
-const trust = [
-  { icon: '◇', title: 'Exclusive Pieces', detail: 'Only Here' },
-  { icon: '↗', title: 'Fast & Secure Delivery', detail: 'Across Morocco' },
-  { icon: '♧', title: 'Secure Payments', detail: '100% Safe' },
-  { icon: '◌', title: 'Dedicated Support', detail: '24/7' },
-];
 ---
 <BaseLayout>
   <div class="announcement">
@@ -29,13 +17,13 @@ const trust = [
     <nav class="main-nav" aria-label="Main navigation">
       <a href="#collections">Shop</a>
       <a href="#collections">Collections</a>
-      <a href="#about">About</a>
-      <a href="#journal">Journal</a>
+      <a href="#contact">About</a>
+      <a href="#collections">Journal</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="header-actions">
       <button class="icon-button" data-search-toggle aria-label="Open search" aria-expanded="false">
-        <Search size={20} strokeWidth={1.6} aria-hidden="true" />
+        <Search size={20} stroke-width={1.6} aria-hidden="true" />
       </button>
       <button class="icon-button" data-wishlist aria-label="Add to wishlist" aria-pressed="false">
         <Heart size={20} strokeWidth={1.6} aria-hidden="true" />
@@ -76,7 +64,7 @@ const trust = [
     </section>
 
     <section class="trust-strip" aria-label="Our promises">
-      <div class="trust-item"><Gem class="trust-icon" size={27} strokeWidth={1.4} aria-hidden="true" /><span><strong>Exclusive Pieces</strong><small>Only Here</small></span></div>
+      <div class="trust-item"><Gem class="trust-icon" size={27} stroke-width={1.4} aria-hidden="true" /><span><strong>Exclusive Pieces</strong><small>Only Here</small></span></div>
       <div class="trust-item"><Truck class="trust-icon" size={27} strokeWidth={1.4} aria-hidden="true" /><span><strong>Fast &amp; Secure Delivery</strong><small>Across Morocco</small></span></div>
       <div class="trust-item"><ShieldCheck class="trust-icon" size={27} strokeWidth={1.4} aria-hidden="true" /><span><strong>Secure Payments</strong><small>100% Safe</small></span></div>
       <div class="trust-item"><Headset class="trust-icon" size={27} strokeWidth={1.4} aria-hidden="true" /><span><strong>Dedicated Support</strong><small>24/7</small></span></div>
