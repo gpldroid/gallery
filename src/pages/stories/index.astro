@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { ArrowUpRight } from '@lucide/astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import StoryCard from '../../components/StoryCard.astro';
+const base = import.meta.env.BASE_URL;
 const stories = (await getCollection('stories')).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 ---
 <BaseLayout title="Stories — Margins Journal" description="Short fiction, personal essays, and thoughtful reads." current="stories">
