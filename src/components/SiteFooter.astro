@@ -1,6 +1,6 @@
 ---
 const base = import.meta.env.BASE_URL;
-import { ArrowUpRight, Feather, Instagram, Facebook, Youtube, Mail } from '@lucide/astro';
+import { ArrowUpRight, Feather, Instagram, Facebook, Youtube } from '@lucide/astro';
 ---
 <footer class="site-footer">
   <div class="footer-main">
@@ -9,7 +9,7 @@ import { ArrowUpRight, Feather, Instagram, Facebook, Youtube, Mail } from '@luci
       <p>A quiet corner of the internet<br />for stories that stay with you.</p>
     </div>
     <div class="footer-column"><span class="footer-label">EXPLORE</span><a href={`${base}stories/`}>Stories</a><a href={`${base}books/`}>The library</a><a href={`${base}about/`}>Our little world</a></div>
-    <div class="footer-column footer-social"><span class="footer-label">FOLLOW THE WORDS</span><div class="social-links"><a href="https://www.instagram.com/" aria-label="Instagram"><Instagram size={17} /></a><a href="https://www.facebook.com/" aria-label="Facebook"><Facebook size={17} /></a><a href="https://www.youtube.com/" aria-label="YouTube"><Youtube size={17} /></a><a href="mailto:hello@margins.example" aria-label="Email"><Mail size={17} /></a></div></div>
+    <div class="footer-column footer-social"><span class="footer-label">FOLLOW THE WORDS</span><div class="social-links"><a href="https://www.instagram.com/" aria-label="Instagram"><Instagram size={17} /></a><a href="https://www.facebook.com/" aria-label="Facebook"><Facebook size={17} /></a><a href="https://www.youtube.com/" aria-label="YouTube"><Youtube size={17} /></a></div></div>
     <div class="footer-column"><span class="footer-label">THE READING ROOM</span><p>Take your time.<br />Turn another page.</p><a class="footer-top-link" href="#top">Back to the beginning <ArrowUpRight size={14} /></a></div>
   </div>
   <div class="footer-bottom"><span>© {new Date().getFullYear()} Margins Journal</span><span>Made for the love of words.</span><span>Read slowly. Feel deeply.</span></div>
