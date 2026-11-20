@@ -27,6 +27,10 @@ const { title = 'Margins — Stories, books & the spaces between', description =
     <SiteHeader current={current} />
     <slot />
     <SiteFooter />
+    <div class="reading-controls" aria-label="Page navigation">
+      <button type="button" data-scroll-top aria-label="Scroll to top" title="Scroll to top"><span aria-hidden="true">↑</span></button>
+      <button type="button" data-scroll-down aria-label="Scroll down" title="Scroll down"><span aria-hidden="true">↓</span></button>
+    </div>
     <script>
       import { gsap } from 'gsap';
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -51,6 +55,44 @@ const { title = 'Margins — Stories, books & the spaces between', description =
           });
           visual.addEventListener('pointerleave', () => gsap.to(visual.querySelector('[data-depth-image]'), { x: 0, y: 0, duration: .8, ease: 'power3.out' }));
         }
+      }
+
+      const root = document.documentElement;
+      const themeButton = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+      const storedTheme = localStorage.getItem('margins-theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const applyTheme = (theme: 'light' | 'dark') => {
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        themeButton?.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#171d19' : '#f3eee5');
+      };
+      applyTheme(storedTheme === 'dark' || storedTheme === 'light' ? storedTheme : (systemDark ? 'dark' : 'light'));
+      themeButton?.addEventListener('click', () => {
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('margins-theme', next);
+      });
+      document.querySelector('[data-scroll-top]')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+      document.querySelector('[data-scroll-down]')?.addEventListener('click', () => window.scrollBy({ top: Math.max(window.innerHeight * .78, 360), behavior: reduceMotion ? 'auto' : 'smooth' }));
+      const scrollControls = document.querySelector<HTMLElement>('.reading-controls');
+      const updateScrollControls = () => scrollControls?.classList.toggle('reading-controls--visible', window.scrollY > 280);
+      updateScrollControls();
+      window.addEventListener('scroll', updateScrollControls, { passive: true });
+      if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+        document.querySelectorAll<HTMLElement>('.story-card, .book-card, .featured-story-image, .button, .social-links a').forEach((card) => {
+          card.addEventListener('pointermove', (event) => {
+            const rect = card.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - .5;
+            const y = (event.clientY - rect.top) / rect.height - .5;
+            card.style.setProperty('--tilt-x', String((-y * 5).toFixed(2)) + 'deg');
+            card.style.setProperty('--tilt-y', String((x * 6).toFixed(2)) + 'deg');
+          });
+          card.addEventListener('pointerleave', () => {
+            card.style.setProperty('--tilt-x', '0deg');
+            card.style.setProperty('--tilt-y', '0deg');
+          });
+        });
       }
     </script>
   </body>
