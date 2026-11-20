@@ -1,16 +1,17 @@
 ---
+const base = import.meta.env.BASE_URL;
 import { ArrowUpRight, Clock3 } from '@lucide/astro';
 const { story, featured = false } = Astro.props;
 ---
 <article class:list={['story-card', { 'story-card--featured': featured }]}>
-  <a class="story-card-image" href={`/stories/${story.id}/`} aria-label={`Read ${story.data.title}`}>
+  <a class="story-card-image" href={`${base}stories/${story.id}/`} aria-label={`Read ${story.data.title}`}>
     <img src={story.data.cover} alt={story.data.coverAlt} loading="lazy" />
     <span class="image-arrow"><ArrowUpRight size={18} /></span>
   </a>
   <div class="story-card-copy">
     <div class="card-meta"><span>{story.data.category}</span><span class="meta-dot">·</span><span><Clock3 size={12} /> {story.data.readingTime} min read</span></div>
-    <h3><a href={`/stories/${story.id}/`}>{story.data.title}</a></h3>
+    <h3><a href={`${base}stories/${story.id}/`}>{story.data.title}</a></h3>
     <p>{story.data.excerpt}</p>
-    <a class="card-read-link" href={`/stories/${story.id}/`}>Read the story <ArrowUpRight size={14} /></a>
+    <a class="card-read-link" href={`${base}stories/${story.id}/`}>Read the story <ArrowUpRight size={14} /></a>
   </div>
 </article>
