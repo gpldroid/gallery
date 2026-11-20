@@ -46,7 +46,7 @@ const featuredBooks = books.filter((book) => book.data.featured).slice(0, 3);
       {recentStories.length === 0 && <p class="empty-note">New stories are finding their way here. Come back soon.</p>}
     </div></section>
     <section class="library-teaser section-shell">
-      <div class="library-teaser-head" data-reveal><div><span class="eyebrow">A SHELF OF POSSIBILITIES</span><h2>Books to keep<br /><em>close by.</em></h2><p>Some books entertain. Others quietly rearrange the furniture of your mind.</p><a class="button button--paper" href="/books/">Visit the library <ArrowUpRight size={16} /></a></div><div class="library-ornament"><Library size={76} stroke-width={.8} /><span>TAKE<br />A BOOK</span></div></div>
+      <div class="library-teaser-head" data-reveal><div><span class="eyebrow">A SHELF OF POSSIBILITIES</span><h2>Books to keep<br /><em>close by.</em></h2><p>Some books entertain. Others quietly rearrange the furniture of your mind.</p><a class="button button--paper" href="/books/">Visit the library <ArrowUpRight size={16} /></a></div><div class="library-ornament"><Library size={76} strokeWidth={.8} /><span>TAKE<br />A BOOK</span></div></div>
       <div class="book-shelf">{featuredBooks.map((book) => <BookCard book={book} />)}</div>
     </section>
     <section class="closing-note"><span class="closing-asterisk">✳</span><p>“There is no friend as loyal as a book.”</p><span class="closing-attribution">— ERNEST HEMINGWAY</span></section>
