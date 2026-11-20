@@ -1,0 +1,21 @@
+---
+import { getCollection, render } from 'astro:content';
+import { ArrowLeft, ArrowUpRight, Feather } from '@lucide/astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+export async function getStaticPaths() {
+  const stories = await getCollection('stories');
+  return stories.map((story) => ({ params: { slug: story.id }, props: { story } }));
+}
+const { story } = Astro.props;
+const { Content } = await render(story);
+const date = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'long', year: 'numeric' }).format(story.data.publishedAt);
+const nextStory = (await getCollection('stories')).find((item) => item.id !== story.id);
+---
+<BaseLayout title={`${story.data.title} — Margins Journal`} description={story.data.description} current="stories" image={story.data.cover}>
+  <main id="main-content" class="article-page">
+    <header class="article-header section-shell"><a class="back-link" href="/stories/"><ArrowLeft size={15} /> Back to all stories</a><div class="article-overline"><span>{story.data.category}</span><span>·</span><span>{story.data.readingTime} MIN READ</span></div><h1>{story.data.title}</h1><p class="article-deck">{story.data.description}</p><div class="article-byline"><span class="author-mark"><Feather size={17} /></span><span>Written by <strong>{story.data.author}</strong></span><span class="byline-divider"></span><time datetime={story.data.publishedAt.toISOString()}>{date}</time></div></header>
+    <figure class="article-cover section-shell"><img src={story.data.cover} alt={story.data.coverAlt} /><figcaption>A moment held between the lines.</figcaption></figure>
+    <article class="prose-wrap"><div class="prose-label">A STORY FROM MARGINS <span>✳</span></div><div class="prose"><Content /></div><div class="article-endmark">✳</div><p class="article-endnote">Thank you for spending a little time here.</p></article>
+    {nextStory && <aside class="next-reading section-shell"><div><span class="eyebrow">KEEP WANDERING</span><h2>One more story?</h2></div><a href={`/stories/${nextStory.id}/`}><span><small>NEXT READ</small><strong>{nextStory.data.title}</strong></span><ArrowUpRight size={19} /></a></aside>}
+  </main>
+</BaseLayout>
