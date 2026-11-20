@@ -40,3 +40,9 @@ Primary navigation is Home, Stories, Books, About. Story and book entries live i
 - Light/dark theme uses semantic surface/text tokens, follows the operating-system preference initially, and remembers an explicit reader choice locally.
 - Floating up/down reading controls appear after the reader scrolls and remain keyboard-operable with clear accessible labels.
 - Responsive composition targets compact phones (320px+), phones, tablets, laptops, desktop, and wide television displays. Content measures stay readable as screens grow; wide layouts increase whitespace and image scale rather than stretching paragraphs.
+
+
+## Surface finish refinement
+- Social network marks use their recognizable brand colors: Instagram's warm violet-to-orange gradient, Facebook blue, and YouTube red.
+- Desktop primary navigation is a raised, softly tilted 3D capsule; active and hover states retain clear contrast. Mobile navigation uses rounded, tactile chips.
+- Editorial image frames, story and book cards, buttons, section panels, and footer surfaces use a consistent rounded-corner scale rather than sharp generic rectangles.
