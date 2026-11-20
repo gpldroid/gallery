@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Search, Heart, ShoppingBag, Gem, Truck, ShieldCheck, Headset, ArrowUpRight } from '@lucide/astro';
 const categories = [
   { name: 'Handbags', note: 'The art of carrying', image: 'photo-1584917865442-de89df76afd3', alt: 'Sculptural leather handbag' },
   { name: 'Watches', note: 'Time, beautifully told', image: 'photo-1524592094714-0f0654e20314', alt: 'Classic luxury wristwatch' },
@@ -34,13 +35,13 @@ const trust = [
     </nav>
     <div class="header-actions">
       <button class="icon-button" data-search-toggle aria-label="Open search" aria-expanded="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"/><path d="m16 16 4.2 4.2"/></svg>
+        <Search size={20} strokeWidth={1.6} aria-hidden="true" />
       </button>
       <button class="icon-button" data-wishlist aria-label="Add to wishlist" aria-pressed="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.1-8.8 11-8.8 11s-8.8-5.9-8.8-11A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"/></svg>
+        <Heart size={20} strokeWidth={1.6} aria-hidden="true" />
       </button>
       <button class="icon-button bag-button" data-bag aria-label="Shopping bag, 0 items">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16l-1.2 12H5.2L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+        <ShoppingBag size={20} strokeWidth={1.6} aria-hidden="true" />
         <span class="bag-count" data-bag-count>0</span>
       </button>
     </div>
@@ -69,18 +70,16 @@ const trust = [
           <span class="floating-product__name">The Élise bag</span>
         </div>
         <span class="hero-side-note">A STUDY IN SOPHISTICATION · EST. 2024</span>
-        <a class="hero-next" href="#collections" aria-label="Discover collections">↗</a>
+        <a class="hero-next" href="#collections" aria-label="Discover collections"><ArrowUpRight size={20} /></a>
       </div>
       <div class="hero-bottom-note">CURATED WITH INTENTION <span>—</span> WORN WITH CONFIDENCE</div>
     </section>
 
     <section class="trust-strip" aria-label="Our promises">
-      {trust.map((item) => (
-        <div class="trust-item">
-          <span class="trust-icon" aria-hidden="true">{item.icon}</span>
-          <span><strong>{item.title}</strong><small>{item.detail}</small></span>
-        </div>
-      ))}
+      <div class="trust-item"><Gem class="trust-icon" size={27} strokeWidth={1.4} aria-hidden="true" /><span><strong>Exclusive Pieces</strong><small>Only Here</small></span></div>
+      <div class="trust-item"><Truck class="trust-icon" size={27} strokeWidth={1.4} aria-hidden="true" /><span><strong>Fast &amp; Secure Delivery</strong><small>Across Morocco</small></span></div>
+      <div class="trust-item"><ShieldCheck class="trust-icon" size={27} strokeWidth={1.4} aria-hidden="true" /><span><strong>Secure Payments</strong><small>100% Safe</small></span></div>
+      <div class="trust-item"><Headset class="trust-icon" size={27} strokeWidth={1.4} aria-hidden="true" /><span><strong>Dedicated Support</strong><small>24/7</small></span></div>
     </section>
 
     <section class="collections section-wrap" id="collections">
