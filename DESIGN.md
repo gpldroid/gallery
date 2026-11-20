@@ -33,3 +33,10 @@ GSAP orchestrates restrained entry and scroll reveals. Hero imagery responds to 
 
 ## Navigation and content
 Primary navigation is Home, Stories, Books, About. Story and book entries live in separate Astro content collections and generate static detail routes. All internal links point to real pages or meaningful section anchors. Content is authored in Markdown with validated frontmatter. No commerce, checkout, cart, payment, or product-purchase affordances exist.
+
+
+## Interaction and responsive additions
+- 3D depth is a tactile affordance on home story/book cards, primary buttons, theme control, and social links. Tilt is pointer-only, subtle, and disabled for reduced-motion and touch layouts.
+- Light/dark theme uses semantic surface/text tokens, follows the operating-system preference initially, and remembers an explicit reader choice locally.
+- Floating up/down reading controls appear after the reader scrolls and remain keyboard-operable with clear accessible labels.
+- Responsive composition targets compact phones (320px+), phones, tablets, laptops, desktop, and wide television displays. Content measures stay readable as screens grow; wide layouts increase whitespace and image scale rather than stretching paragraphs.
