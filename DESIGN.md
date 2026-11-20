@@ -1,23 +1,35 @@
-# Trendora — Design direction
+# Margins — Editorial design direction
 
-## Brand
-A contemporary luxury accessories boutique for style-conscious shoppers. The storefront's job is to make the collection feel curated and desirable, then guide visitors into category discovery.
+## Product
+Margins is an independent literary journal and reading library. Its audience is curious readers, fiction lovers, and people who enjoy discovering thoughtful writing. The website's primary job is editorial discovery: help a visitor find a story, explore a book, and settle into a calm reading experience. It is not a shop.
 
-## Visual system
-- Porcelain: #F4EDE4 — warm editorial canvas.
-- Ink: #171A16 — deep near-black for primary text and controls.
-- Forest: #14231D — signature dark green.
-- Champagne: #C8A979 — restrained metallic accent.
-- Muted: #766F65 — secondary copy.
-- White: #FFFCF7 — elevated surfaces.
+## Visual identity
+A contemporary literary journal with the atmosphere of a well-loved reading room: tactile paper, ink, soft daylight, quiet forest green, and a restrained rust accent.
 
-Typography pairs Cormorant Garamond for editorial headlines with DM Sans for navigation, utility copy, and controls. The signature device is the oversized editorial hero: a fashion portrait on the right, typography on the left, with a floating product detail and quiet champagne highlights.
+### Tokens
+- Paper — #F3EEE5: warm page background.
+- Parchment — #E9E1D5: subtle section contrast.
+- Ink — #22251F: primary text.
+- Forest — #1D3028: editorial anchor and primary action.
+- Moss — #687466: secondary green.
+- Brass — #B89A70: restrained detail.
+- Rust — #A45F46: occasional editorial accent.
+- White — #FCFAF5: reading surfaces.
 
-## Layout
-A narrow shipping announcement, centered desktop navigation, full-bleed hero, four editorial category tiles, dark newsletter panel, and compact footer. Desktop uses generous negative space; mobile becomes a compact stacked storefront with touch-friendly controls.
+### Typography
+- Display: Cormorant Garamond for expressive editorial headlines and titles.
+- Reading: Literata for long-form prose and article body.
+- Interface: DM Sans for navigation, metadata, labels, and utility copy.
+- Long-form text stays at a comfortable 68–72 character measure, generous line-height, and restrained weight.
+
+## Composition
+The home page uses an editorial hero with a quiet reading photograph and asymmetric type/image balance, a small typographic ribbon, one featured story, a three-column recent-story grid, and a deep forest library feature. Stories and books have independent archive routes and individual detail routes. Story detail pages prioritize readable prose over decoration; book detail pages give the cover a clear, gallery-like stage.
+
+## Signature
+The visual signature is the "reading-room margin": small uppercase editorial notes, thin rules, and a single rust-colored asterisk that recurs like a printer's mark. It connects archive cards, article bylines, and the footer without turning into decoration.
 
 ## Motion and depth
-Use a restrained GSAP entrance sequence and pointer-aware hero parallax. Product cards lift slightly with layered shadows; the hero image has a subtle perspective shift. All motion respects prefers-reduced-motion. Avoid perpetual motion and excessive glass effects.
+GSAP orchestrates restrained entry and scroll reveals. Hero imagery responds to pointer movement with a very slight depth shift. Cards lift subtly on hover. All animation respects prefers-reduced-motion and never delays reading access.
 
-## Interaction
-Navigation anchors scroll to page sections. Category tiles navigate to their collection anchors. Newsletter validates an email and provides an inline confirmation; no backend subscription is implied. Search, wishlist, and bag controls provide honest local interaction feedback only.
+## Navigation and content
+Primary navigation is Home, Stories, Books, About. Story and book entries live in separate Astro content collections and generate static detail routes. All internal links point to real pages or meaningful section anchors. Content is authored in Markdown with validated frontmatter. No commerce, checkout, cart, payment, or product-purchase affordances exist.
